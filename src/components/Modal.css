@@ -1,0 +1,69 @@
+
+.track-modal {
+  width: 100vw;
+  height:100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+  position: fixed;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  opacity: 1;
+  padding: 3vmin;
+	animation-name: fadeInTrack;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+  animation-duration: 750ms;
+  transition: width 500ms ease-out;
+  
+}
+
+.track-modal-frame {
+  border: 3px solid black;
+  margin-top:20vmin;
+  width:60vmin;
+  opacity: 1;
+	animation-name: fadeInModal;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+  animation-duration: 500ms;
+  transition: width 500ms ease-out;
+}
+
+
+.track:hover{
+  width: 28vmin;
+  transition: width 500ms ease-out;
+  cursor: pointer;
+}
+
+.track-name{
+  color: black;
+  font-size:2vmin;
+  transition: font-size 500ms ease-out;
+}
+
+
+@keyframes fadeInTrack {
+	0% {
+    opacity: 0;
+  }
+
+	100% {
+    opacity: 1;
+	}
+}
+
+@keyframes fadeInModal {
+	0% {
+    opacity: 0;
+    width: 5%;
+  }
+
+	100% {
+    opacity: 1;
+    width: 60vmin;
+    
+	}
+}
+

@@ -1,0 +1,62 @@
+
+.track {
+  flex: 0 0 auto;
+  width: 25vmin;
+  align-self: center;
+  opacity: 1;
+  padding: 3vmin;
+	animation-name: fadeInTrack;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+  animation-duration: 1s;
+  transition: width 1s ease-out;
+  
+}
+
+.track-image {
+  width:100%;
+  opacity: 1;
+	animation-name: fadeInTrackImage;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+  animation-duration: 1s;
+  transition: width 500ms ease-out;
+}
+
+
+.track:hover{
+  width: 28vmin;
+  transition: width 500ms ease-out;
+  cursor: pointer;
+}
+
+.track-name{
+  color: black;
+  font-size:2vmin;
+  transition: font-size 500ms ease-out;
+}
+
+
+@keyframes fadeInTrack {
+	0% {
+    opacity: 0;
+  }
+
+	100% {
+    opacity: 1;
+	}
+}
+
+@keyframes fadeInTrackImage {
+	0% {
+    opacity: 0;
+    width: 75%;
+  }
+
+	100% {
+    opacity: 1;
+    width: 100%;
+    
+	}
+}
+

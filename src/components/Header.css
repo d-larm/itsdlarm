@@ -1,0 +1,42 @@
+
+.App-logo {
+  height: 50vmin;
+  min-height: 10vmin;
+  opacity: 1;
+  position: relative;
+	animation-name: fadeIn;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+  animation-duration: 1s;
+  z-index: 1;
+}
+
+
+.App-header {
+
+  /* position:relative; */
+  padding:0.1vmin;
+  align-items: center;
+  width: 90vw;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  box-sizing: border-box;
+  /* border-bottom: 1px solid white; */
+}
+
+
+.App-link {
+  color: #09d3ac;
+}
+
+@keyframes fadeIn {
+	0% {
+    opacity: 0;
+    height: 40vmin;
+  }
+
+	100% {
+    opacity: 1; 
+    height: 50vmin;
+	}
+}

@@ -1,22 +1,36 @@
 .App {
   text-align: center;
-}
+  /* background-color: #282c34; */
+  /* background-color: rgb(22, 21, 21); */
+  /* background-color: rgb(12, 12, 12); */
+  background-color: white;
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  font-family: Consolas;
 }
+
+
+::-webkit-scrollbar {        
+  height: 10px;
+  background-color: grey;
+}
+
+::-webkit-scrollbar-thumb {        
+  border-radius:10px;
+  height: 10px;
+  background-color: black;
+}
+
+
 
 .App-link {
   color: #09d3ac;
 }
+

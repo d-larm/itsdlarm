@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { SpotifyProvider } from './SpotifyContext'
+import Modal from './components/Modal'
+import Header from './components/Header'
+import Container from './components/Container'
+import TrackContainer from './components/TrackContainer'
+import Track from './components/Track'
+import './App.css'
+import './Align.css'
+// import './backgrounds/Mist.css'
 
-function App() {
+
+const App = () =>  {
+  const [ tracks, setTracks ] = useState( [] )
+  const [ url, setUrl ] = useState( null )
+  const [ hideModal, setHideModal ] = useState( true )
+
+  useEffect( () => {
+    const getTracks = async () => {
+      const albums = await fetch( '/alltracks' ).then( res => res.json() )
+      console.log( albums )
+      setTracks( albums )
+    }
+
+    getTracks()
+  }, [] )
+
+  const trackClick = ( url ) => {
+    setUrl( url )
+    setHideModal( false )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SpotifyProvider value={ url } >
+      <div className="App">
+        <Header/>
+        <Modal hidden={hideModal} setHidden={setHideModal} />
+        <Container title='Music Collection'>
+          <TrackContainer>
+          { tracks.map( track => { return <Track {...track} onClick={trackClick} key={track.id} /> } )}
+          </TrackContainer>
+        </Container>
+        {/* <Container title='Soundcloud'></Container> */}
+      </div>
+    </SpotifyProvider>
   );
+
 }
 
 export default App;
