@@ -13,7 +13,7 @@ import './Align.css'
 const App = () =>  {
   const { NODE_ENV } = process.env
   console.log( NODE_ENV )
-  const server = NODE_ENV === 'production' ? 'dlarm.me:3001' : ''
+  const server = NODE_ENV === 'production' ? 'http://dlarm.me:3001' : ''
   const [ tracks, setTracks ] = useState( [] )
   const [ url, setUrl ] = useState( null )
   const [ hideModal, setHideModal ] = useState( true )
