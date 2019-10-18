@@ -20,7 +20,7 @@ const App = () =>  {
 
   useEffect( () => {
     const getTracks = async () => {
-      const albums = await fetch( `${server}/alltracks` ).then( res => res.json() )
+      const albums = await fetch( `${server}/alltracks` ).then( res => res.json() ).then( json => !json.err ? json : [] )
       //console.log( albums )
       setTracks( albums )
     }

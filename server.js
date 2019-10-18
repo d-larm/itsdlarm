@@ -44,11 +44,11 @@ const getAccessToken = async () => {
 }
 
 const getTracks = async () => {
-  const apiAccessToken = spotify.getAccessToken()
+  const apiAccessToken = await spotify.getAccessToken()
 
   if( !apiAccessToken ){
     const { access_token: accessToken } = await getAccessToken()
-    spotify.setAccessToken( accessToken )
+    await spotify.setAccessToken( accessToken )
   }
 
   const { body: { items } } = await spotify.getArtistAlbums( userId )
