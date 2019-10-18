@@ -43,31 +43,44 @@ const getAccessToken = async () => {
   ).then( data => data.json() )
 }
 
+const getTracks = async () => {
+  const apiAccessToken = spotify.getAccessToken()
+
+  if( !apiAccessToken ){
+    const { access_token: accessToken } = await getAccessToken()
+    spotify.setAccessToken( accessToken )
+  }
+
+  const { body: { items } } = await spotify.getArtistAlbums( userId )
+
+  const albums = items.map( album => ( {
+    id: album.id,
+    image: album.images[0].url,
+    url: album.external_urls.spotify,
+    name: album.name,
+    release_date: album.release_date,
+    type: album.album_type,
+    artists: album.artists
+  } ) )
+  return albums 
+}
+
 endpoint.get( '/alltracks', async ( _, res ) => {
   try{
-    const apiAccessToken = spotify.getAccessToken()
-
-    if( !apiAccessToken ){
-      const { access_token: accessToken } = await getAccessToken()
-      spotify.setAccessToken( accessToken )
-    }
-
-    const { body: { items } } = await spotify.getArtistAlbums( userId )
-
-    const albums = items.map( album => ( {
-      id: album.id,
-      image: album.images[0].url,
-      url: album.external_urls.spotify,
-      name: album.name,
-      release_date: album.release_date,
-      type: album.album_type,
-      artists: album.artists
-    } ) )
-
+    const albums = await getTracks()
     // console.log( albums )
     res.json( albums )
-  }catch( e ){
-    console.log( e )
+  }catch( err ){
+    console.log( err )
+    try{
+      if( err.statusCode === 401 ){
+        const albums = await getTracks()
+        res.json( albums )
+      }
+    }catch( e ){
+      res.json( { err } )
+    }
+    res.json( { err } )
   }
 } )
 
