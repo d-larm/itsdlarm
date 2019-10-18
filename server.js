@@ -1,6 +1,7 @@
 import express, { Router } from 'express'
 import bodyParser from 'body-parser'
 import fetch from 'node-fetch'
+import cors from 'cors'
 import { URLSearchParams } from 'url'
 import SpotifyAPI from 'spotify-web-api-node'
 
@@ -8,10 +9,15 @@ import SpotifyAPI from 'spotify-web-api-node'
 require( 'dotenv' ).config()
 
 
+
 const { SERVER_PORT = 3001, CLIENT_ID, CLIENT_SECRET } = process.env
 
 const app = express()
 const endpoint = new Router()
+
+app.use( cors( {
+  origin: 'http://dlarm.me'
+} ) )
 
 const auth = Buffer.from( `${CLIENT_ID}:${CLIENT_SECRET}` ).toString( 'base64' )
 const headers = {
@@ -58,7 +64,7 @@ endpoint.get( '/alltracks', async ( _, res ) => {
       artists: album.artists
     } ) )
 
-    console.log( albums )
+    // console.log( albums )
     res.json( albums )
   }catch( e ){
     console.log( e )
