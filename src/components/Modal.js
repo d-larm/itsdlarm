@@ -6,7 +6,7 @@ const Modal = ( { hidden, setHidden } ) => {
   const url = useContext( SpotifyContext )
   const style = ( hidden ) =>  hidden ?  { display: 'none' } : { display: 'block' }
   const embedUrl = url && url.slice( 0, url.indexOf( '.com' ) + 4 ) + '/embed' + url.slice( url.indexOf( '.com' ) + 4 )
-  console.log( embedUrl )
+  //console.log( embedUrl )
   
   return (
     <div className="track-modal" style={style( hidden )} onClick={() => setHidden( true )}>

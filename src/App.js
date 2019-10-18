@@ -12,7 +12,7 @@ import './Align.css'
 
 const App = () =>  {
   const { NODE_ENV } = process.env
-  console.log( NODE_ENV )
+  // console.log( NODE_ENV )
   const server = NODE_ENV === 'production' ? 'http://dlarm.me:3001' : ''
   const [ tracks, setTracks ] = useState( [] )
   const [ url, setUrl ] = useState( null )
@@ -21,7 +21,7 @@ const App = () =>  {
   useEffect( () => {
     const getTracks = async () => {
       const albums = await fetch( `${server}/alltracks` ).then( res => res.json() )
-      console.log( albums )
+      //console.log( albums )
       setTracks( albums )
     }
 
