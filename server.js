@@ -87,7 +87,7 @@ const main = async () => {
     const server = await app.listen( SERVER_PORT )
     const { address: host, port } = server.address()
     await setTokens()
-    setTimeout( async () => await setTokens(), 3500e3 )
+    const intervalId = setInterval( async () => await setTokens(), 3500e3 )
     console.log( `Listening at http://${host}:${port}` )
   } catch ( err ) {
     console.error( 'Exited with error', err )
