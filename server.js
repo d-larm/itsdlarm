@@ -31,6 +31,8 @@ const spotify = new SpotifyAPI( {
 
 const userId = '0UkglgJtVtdxyiCWcc410a'
 
+
+
 const setTokens = async () => {
   try{
     const { body: token } = await spotify.clientCredentialsGrant()
@@ -43,9 +45,6 @@ const setTokens = async () => {
 }
 
 const getTracks = async () => {
-  await setTokens()
-
-
   const { body: { items } } = await spotify.getArtistAlbums( userId )
 
   const albums = items.map( album => ( {
@@ -63,31 +62,21 @@ const getTracks = async () => {
 endpoint.get( '/alltracks', async ( _, res ) => {
   try{
     const albums = await getTracks()
-    // console.log( albums )
     res.json( albums )
   }catch( err ){
-    console.log( err )
-    try{
-      if( err.statusCode === 401 ){
-        const albums = await getTracks()
-        res.json( albums )
-      }
-    }catch( e ){
-      res.json( { err } )
-    }
     res.json( { err } )
   }
 } )
 
-endpoint.get( '/singles', async ( _, res ) => {
-  const { access_token: accessToken } = await getAccessToken()
-  console.log( accessToken )
-} )
+// endpoint.get( '/singles', async ( _, res ) => {
+//   const { access_token: accessToken } = await getAccessToken()
+//   console.log( accessToken )
+// } )
 
-endpoint.get( '/all', async ( _, res ) => {
-  const { access_token: accessToken } = await getAccessToken()
-  console.log( accessToken )
-} )
+// endpoint.get( '/all', async ( _, res ) => {
+//   const { access_token: accessToken } = await getAccessToken()
+//   console.log( accessToken )
+// } )
 
 const main = async () => {
   // Mount all the provided endpoints
@@ -97,6 +86,8 @@ const main = async () => {
   try {
     const server = await app.listen( SERVER_PORT )
     const { address: host, port } = server.address()
+    await setTokens()
+    setTimeout( async () => await setTokens(), 3500e3 )
     console.log( `Listening at http://${host}:${port}` )
   } catch ( err ) {
     console.error( 'Exited with error', err )
