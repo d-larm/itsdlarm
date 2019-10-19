@@ -10,7 +10,7 @@ require( 'dotenv' ).config()
 
 
 
-const { SERVER_PORT = 3001, CLIENT_ID, CLIENT_SECRET } = process.env
+const { SERVER_PORT = 3001, CLIENT_ID, CLIENT_SECRET, NODE_ENV } = process.env
 
 const app = express()
 const endpoint = new Router()
@@ -31,25 +31,20 @@ const spotify = new SpotifyAPI( {
 
 const userId = '0UkglgJtVtdxyiCWcc410a'
 
-const getAccessToken = async () => {
-  const body = new URLSearchParams()
-  body.append( 'grant_type', "client_credentials" )
-  return fetch( `https://accounts.spotify.com/api/token`,
-    {
-        method: 'POST',
-        headers,
-        body,
-    }
-  ).then( data => data.json() )
+const setTokens = async () => {
+  try{
+    const { body: token } = await spotify.clientCredentialsGrant()
+    const { access_token, expires_in } = token
+    spotify.setAccessToken( access_token )
+  }catch( err ){
+    console.log( err )
+    return err
+  }
 }
 
 const getTracks = async () => {
-  const apiAccessToken = await spotify.getAccessToken()
+  await setTokens()
 
-  if( !apiAccessToken ){
-    const { access_token: accessToken } = await getAccessToken()
-    await spotify.setAccessToken( accessToken )
-  }
 
   const { body: { items } } = await spotify.getArtistAlbums( userId )
 
