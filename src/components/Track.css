@@ -32,7 +32,7 @@
 
 .track-name{
   color: black;
-  font-size:3vmin;
+  font-size:75%;
   transition: font-size 500ms ease-out;
 }
 
