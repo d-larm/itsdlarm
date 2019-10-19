@@ -26,7 +26,7 @@ const App = () =>  {
     }
 
     getTracks()
-  }, [] )
+  }, [ server ] )
 
   const trackClick = ( url ) => {
     setUrl( url )
