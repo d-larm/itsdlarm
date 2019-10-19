@@ -20,8 +20,8 @@
 
 .track-modal-frame {
   border: 3px solid black;
-  margin-top:20vmin;
-  width:60vmin;
+  margin-top:25vmin;
+  width:65vmin;
   opacity: 1;
 	animation-name: fadeInModal;
 	animation-iteration-count: 1;

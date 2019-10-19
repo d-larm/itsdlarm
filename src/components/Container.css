@@ -10,6 +10,7 @@
   /* min-height: 30vh; */
   /* transition: overflow-x 1s ease-out; */
   overflow-y:hidden;
+  margin-bottom: 5vmin;
   
 }
 
@@ -29,6 +30,7 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-color: black grey;
   scrollbar-width: thin;
+  
   
 
   /* -ms-overflow-style: -ms-autohiding-scrollbar; */

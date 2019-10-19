@@ -1,7 +1,7 @@
 
 .track {
   flex: 0 0 auto;
-  width: 25vmin;
+  width: 32vmin;
   align-self: center;
   opacity: 1;
   padding: 3vmin;
@@ -25,14 +25,14 @@
 
 
 .track:hover{
-  width: 28vmin;
+  width: 34vmin;
   transition: width 500ms ease-out;
   cursor: pointer;
 }
 
 .track-name{
   color: black;
-  font-size:2vmin;
+  font-size:3vmin;
   transition: font-size 500ms ease-out;
 }
 
