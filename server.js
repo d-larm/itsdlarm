@@ -55,7 +55,7 @@ const getTracks = async () => {
     release_date: album.release_date,
     type: album.album_type,
     artists: album.artists
-  } ) )
+  } ) ).sort( ( { release_date: a }, { release_date: b } ) => Date.parse( b ) - Date.parse( a ) )
   return albums 
 }
 
