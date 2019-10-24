@@ -10,7 +10,7 @@ require( 'dotenv' ).config()
 
 
 
-const { SERVER_PORT = 3001, CLIENT_ID, CLIENT_SECRET } = process.env
+const { SERVER_PORT = 3001, CLIENT_ID, CLIENT_SECRET, NODE_ENV } = process.env
 
 const app = express()
 const endpoint = new Router()
@@ -55,7 +55,7 @@ const getTracks = async () => {
     release_date: album.release_date,
     type: album.album_type,
     artists: album.artists
-  } ) )
+  } ) ).sort( ( { release_date: a }, { release_date: b } ) => Date.parse( b ) - Date.parse( a ) )
   return albums 
 }
 
