@@ -4,12 +4,14 @@
   width: 32vmin;
   align-self: center;
   opacity: 1;
-  padding: 3vmin;
+  transform: scale(1);
+  padding: 5vmin;
 	animation-name: fadeInTrack;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-out;
   animation-duration: 1s;
-  transition: width 1s ease-out;
+  /* transition: width 1s ease-out; */
+  transition: 500ms ease-out;
   
 }
 
@@ -25,8 +27,11 @@
 
 
 .track:hover{
-  width: 34vmin;
-  transition: width 500ms ease-out;
+  transform: scale(1.3);
+  /* width: 34vmin; */
+  /* transition: width 500ms ease-out; */
+  transition: 500ms ease-out;
+
   cursor: pointer;
 }
 
