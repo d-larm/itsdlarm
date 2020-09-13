@@ -13,7 +13,7 @@ import './Align.css'
 const App = () =>  {
   const { NODE_ENV } = process.env
   // console.log( NODE_ENV )
-  const server = NODE_ENV === 'production' ? 'http://dlarm.me/api' : 'http://localhost:3000'
+  const server = NODE_ENV === 'production' ? 'https://dlarm.me/api' : 'http://localhost:3000'
   const [ tracks, setTracks ] = useState( [] )
   const [ url, setUrl ] = useState( null )
   const [ hideModal, setHideModal ] = useState( true )
@@ -40,7 +40,7 @@ const App = () =>  {
         <Modal hidden={hideModal} setHidden={setHideModal} />
         <Container title='Music Collection'>
           <TrackContainer>
-          { tracks.map( track => { return <Track {...track} onClick={trackClick} key={track.id} /> } )}
+            { tracks.map( track => { return <Track {...track} onClick={trackClick} key={track.id} /> } )}
           </TrackContainer>
         </Container>
         {/* <Container title='Soundcloud'></Container> */}
