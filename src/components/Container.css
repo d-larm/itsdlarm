@@ -56,9 +56,13 @@
 }
 
 .container-title {
-  font-size: 3vmin;
-  padding-top: 1vmin;
-  padding-bottom: 1vmin;
+  font-size: 1.2em;
+  padding-top: 5vmin;
+  padding-bottom: 5vmin;
+  border: 3px solid black;
+  border-right: 0;
+  border-left: 0;
+  margin-bottom: 5vmin;
 }
 
 .container:nth-of-type(2n){
