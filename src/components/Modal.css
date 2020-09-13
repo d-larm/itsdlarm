@@ -13,7 +13,7 @@
 	animation-name: fadeInTrack;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-out;
-  animation-duration: 750ms;
+  animation-duration: 600ms;
   transition: width 500ms ease-out;
   
 }
@@ -42,6 +42,19 @@
     animation-duration: 500ms;
     transition: width 500ms ease-out;
   }
+
+  @keyframes fadeInModal {
+    0% {
+      opacity: 0;
+      width: 0;
+    }
+  
+    100% {
+      opacity: 1;
+      width: 80vmin;
+      
+    }
+  }
 }
 
 
@@ -59,12 +72,12 @@
 @keyframes fadeInModal {
 	0% {
     opacity: 0;
-    width: 5%;
+    width: 0;
   }
 
 	100% {
     opacity: 1;
-    width: 60vmin;
+    width: 65vmin;
     
 	}
 }
