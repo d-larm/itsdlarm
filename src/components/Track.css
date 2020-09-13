@@ -1,17 +1,17 @@
 
 .track {
-  flex: 0 0 auto;
-  width: 32vmin;
+  /* flex: 0 0 auto; */
+  position: relative;
+  width: 42vmin;
   align-self: center;
   opacity: 1;
-  transform: scale(1);
-  padding: 5vmin;
+  padding: 4vmin;
 	animation-name: fadeInTrack;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-out;
   animation-duration: 1s;
   /* transition: width 1s ease-out; */
-  transition: 500ms ease-out;
+  transition: 400ms ease-out;
   
 }
 
@@ -25,13 +25,11 @@
   transition: width 500ms ease-out;
 }
 
-
 .track:hover{
   transform: scale(1.1);
   /* width: 34vmin; */
   /* transition: width 500ms ease-out; */
-  transition: 500ms ease-out;
-
+  transition: 300ms ease-out;
   cursor: pointer;
 }
 
@@ -39,6 +37,7 @@
   color: black;
   font-size:75%;
   transition: font-size 500ms ease-out;
+  margin-top: 2vmin;
 }
 
 
