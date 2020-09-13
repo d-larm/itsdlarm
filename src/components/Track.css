@@ -9,7 +9,7 @@
 	animation-name: fadeInTrack;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-out;
-  animation-duration: 1s;
+  animation-duration: 600ms;
   /* transition: width 1s ease-out; */
   transition: 300ms ease-out;
   
@@ -21,7 +21,7 @@
 	animation-name: fadeInTrackImage;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-out;
-  animation-duration: 1s;
+  animation-duration: 600ms;
   transition: width 300ms ease-out;
 }
 
@@ -40,6 +40,30 @@
   margin-top: 2vmin;
 }
 
+
+.track-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 3em;
+  width: 100%;
+  height: 100%;
+  color: white;
+  top: -3vmin;
+  left: 0;
+  transition: 500ms;
+  opacity: 1;
+
+  animation-name: fadeInTrack;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+  animation-duration: 600ms;
+}
+
+.track-overlay:hover {
+  opacity: 0;
+}
 
 @keyframes fadeInTrack {
 	0% {

@@ -37,7 +37,7 @@ const App = () =>  {
     <SpotifyProvider value={ url } >
       <div className="App">
         <Header/>
-        <Modal hidden={hideModal} setHidden={setHideModal} />
+        <Modal hidden={hideModal} setHidden={setHideModal} setUrl={setUrl} />
         <Container title='Music Collection'>
           <TrackContainer>
             { tracks.map( track => { return <Track {...track} onClick={trackClick} key={track.id} /> } )}
