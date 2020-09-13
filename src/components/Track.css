@@ -27,7 +27,7 @@
 
 
 .track:hover{
-  transform: scale(1.3);
+  transform: scale(1.1);
   /* width: 34vmin; */
   /* transition: width 500ms ease-out; */
   transition: 500ms ease-out;
