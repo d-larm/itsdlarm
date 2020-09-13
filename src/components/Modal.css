@@ -13,7 +13,7 @@
 	animation-name: fadeInTrack;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-out;
-  animation-duration: 750ms;
+  animation-duration: 600ms;
   transition: width 500ms ease-out;
   
 }
@@ -30,18 +30,33 @@
   transition: width 500ms ease-out;
 }
 
+@media only screen and (max-width: 600px) {
+  .track-modal-frame {
+    border: 3px solid black;
+    margin-top:25vmin;
+    width:80vmin;
+    opacity: 1;
+    animation-name: fadeInModal;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 500ms;
+    transition: width 500ms ease-out;
+  }
 
-.track:hover{
-  width: 28vmin;
-  transition: width 500ms ease-out;
-  cursor: pointer;
+  @keyframes fadeInModal {
+    0% {
+      opacity: 0;
+      width: 0;
+    }
+  
+    100% {
+      opacity: 1;
+      width: 80vmin;
+      
+    }
+  }
 }
 
-.track-name{
-  color: black;
-  font-size:2vmin;
-  transition: font-size 500ms ease-out;
-}
 
 
 @keyframes fadeInTrack {
@@ -57,12 +72,12 @@
 @keyframes fadeInModal {
 	0% {
     opacity: 0;
-    width: 5%;
+    width: 0;
   }
 
 	100% {
     opacity: 1;
-    width: 60vmin;
+    width: 65vmin;
     
 	}
 }

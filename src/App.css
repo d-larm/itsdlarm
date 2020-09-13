@@ -17,14 +17,14 @@
 
 
 ::-webkit-scrollbar {        
-  height: 10px;
-  background-color: grey;
+  /* height: 10px; */
+  background-color: black;
 }
 
 ::-webkit-scrollbar-thumb {        
   border-radius:10px;
-  height: 10px;
-  background-color: black;
+  /* height: 10px; */
+  background-color: grey;
 }
 
 
